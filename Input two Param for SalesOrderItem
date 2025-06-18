@@ -1,0 +1,11 @@
+SELECT T1."SalesOrder",
+       T1."SalesOrderItem",
+       T1."SalesOrderItemUUID",
+       T1."NetAmount",
+       T2."OrganizationDivision",
+       T2."SalesOffice"
+FROM "I_SALESORDERITEM" as T1
+JOIN "I_SALESORDER" as T2
+ON T1."SalesOrder"=T2."SalesOrder"
+WHERE T1."NetAmount" = :IP_PRICE 
+AND   T2."SalesOffice" = :IP_SALESOFFICE;

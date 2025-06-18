@@ -1,0 +1,13 @@
+SELECT "SalesOrder",
+        "SalesOrderItem",
+        "SalesOrderItemCategory",
+        "SalesOrderCondition",
+        "SalesDistrict",
+        "NetAmount",
+        "NetPriceAmount",
+        "OrderQuantity",
+        "NetAmount" as "Par_NetAmount",
+        "TransactionCurrency",
+        "OrderQuantityUnit"
+FROM "I_SALESORDERITEM"
+WHERE "NetAmount" = :IP_PRICE

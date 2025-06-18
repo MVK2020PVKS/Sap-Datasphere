@@ -1,0 +1,17 @@
+BEGIN
+RETURN
+SELECT 
+  TAB."SalesOrder",
+  TAB."SalesOrderItem",
+  TAB."SalesOrderItemCategory",
+  TAB."SalesOrderItemText",
+  TAB."NetAmount",
+  CASE 
+    WHEN "NetAmount" >= 1000 THEN 'High Amount'
+    ELSE 'Low Amount'
+  END AS "AmountCategory",
+  TAB."NetPriceAmount"
+FROM "I_SALESORDERITEM" AS TAB
+WHERE TAB."NetAmount"= :IP_NETAMOUNT
+AND TAB."SalesOrder"= :IP_SALESORDER;
+END;
